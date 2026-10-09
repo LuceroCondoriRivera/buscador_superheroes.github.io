@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Super Finder · Buscador de superhéroes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="main.js" defer></script>
+</head>
+<body>
+  <header class="header">
+    <h1 class="logo">Super<span>Finder</span></h1>
+    <button id="themeToggle" class="btn btn--icon" type="button" aria-label="Activar modo oscuro">🌙</button>
+  </header>
+
+  <main class="container">
+    <section class="toolbar" aria-label="Búsqueda y orden">
+      <form id="searchForm" class="search" role="search">
+        <label for="searchInput" class="sr-only">Nombre del personaje</label>
+        <input id="searchInput" class="input" type="search" placeholder="Busca un héroe: batman, hulk, storm…" autocomplete="off">
+        <button class="btn btn--primary" type="submit">¡Buscar!</button>
+      </form>
+      <div class="sort">
+        <label for="genderSelect">Género</label>
+        <select id="genderSelect" class="input">
+          <option value="">Todos</option>
+          <option value="Male">Masculino</option>
+          <option value="Female">Femenino</option>
+          <option value="__none__">Sin datos</option>
+        </select>
+      </div>
+      <div class="sort">
+        <label for="publisherSelect">Editorial</label>
+        <select id="publisherSelect" class="input">
+          <option value="">Todas</option>
+        </select>
+      </div>
+      <div class="sort">
+        <label for="alignmentSelect">Alineación</label>
+        <select id="alignmentSelect" class="input">
+          <option value="">Todas</option>
+          <option value="good">Bueno</option>
+          <option value="bad">Malo</option>
+          <option value="neutral">Neutral</option>
+          <option value="__none__">Sin datos</option>
+        </select>
+      </div>
+      <div class="sort">
+        <label for="sortSelect">Ordenar</label>
+        <select id="sortSelect" class="input">
+          <option value="asc">A → Z</option>
+          <option value="desc">Z → A</option>
+        </select>
+      </div>
+    </section>
+
+    <p id="resultsInfo" class="results-info" aria-live="polite"></p>
+
+    <section id="grid" class="grid" aria-label="Resultados"></section>
+
+    <nav id="pagination" class="pagination" aria-label="Paginado">
+      <button id="firstBtn" class="btn" type="button" aria-label="Primera página">«</button>
+      <button id="prevBtn" class="btn" type="button" aria-label="Página anterior">‹</button>
+      <span id="pageInfo" class="pagination__info"></span>
+      <label for="pageSelect" class="sr-only">Ir a la página</label>
+      <select id="pageSelect" class="input input--small"></select>
+      <button id="nextBtn" class="btn" type="button" aria-label="Página siguiente">›</button>
+      <button id="lastBtn" class="btn" type="button" aria-label="Última página">»</button>
+    </nav>
+  </main>
+
+  <dialog id="detail" class="detail" aria-labelledby="detailTitle"></dialog>
+
+  <footer class="footer">
+    <p>Datos: <a href="https://github.com/akabab/superhero-api" target="_blank" rel="noopener">akabab/superhero-api</a> · Proyecto integrador Front End</p>
+  </footer>
+</body>
+</html>
